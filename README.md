@@ -10,7 +10,7 @@ This source release includes GeoTri-GCN and matched EfficientGCN-B0 configuratio
 
 GeoTri-GCN combines sequence-consistent bone-length perturbation, tri-axis stream fusion (TASF), and selective multi-scale temporal refinement (SMTR). Shared source files also contain optional identity-adversarial, bone-length normalization and paired-consistency routines; none is enabled by the released GeoTri-GCN configurations.
 
-The release preserves the model and training logic. Configuration names, output paths, comments and diagnostic labels use descriptive names; dataset paths are portable. Validation covers synthetic CPU smoke checks, not benchmark accuracy reproduction. Historical training environments may differ from the tested release environment.
+The release preserves the model and training logic. Configuration names, output paths, comments and diagnostic labels use descriptive names; dataset paths are portable. Historical training environments may differ from the release environment. This source release alone does not establish benchmark accuracy reproduction.
 
 Datasets, pretrained weights, experimental logs, manuscript files and later experimental runners are not included. This source-only release does not report benchmark scores.
 
@@ -31,10 +31,9 @@ conda create -n geotri-gcn python=3.10
 conda activate geotri-gcn
 python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cu128
 python -m pip install -r requirements.txt
-python scripts/smoke_release.py
 ```
 
-The PyTorch command above is for a CUDA 12.8 build; choose a compatible build/driver for your hardware. Model and feeder smoke checks run on CPU. The original training/evaluation runner is intended for NVIDIA GPU use, and performs an NVML memory check; CPU training and end-to-end throughput are not validated here.
+The PyTorch command above is for a CUDA 12.8 build; choose a compatible build/driver for your hardware. The training/evaluation runner is intended for NVIDIA GPU use and performs an NVML memory check. CPU training is not validated.
 
 ## Data
 
